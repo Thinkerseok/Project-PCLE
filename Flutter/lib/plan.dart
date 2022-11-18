@@ -36,9 +36,10 @@ class Plan extends StatelessWidget {
                       },
                       firstDay: DateTime.utc(2021, 10, 16),
                       lastDay: DateTime.utc(2030, 3, 14),
-                      focusedDay: DateTime.now(),
+                      focusedDay: DateTime.utc(2022, 11, 18),
                       headerVisible: false,
                       calendarStyle: const CalendarStyle(
+                        isTodayHighlighted: true,
                         defaultTextStyle: TextStyle(color: Colors.white),
                         weekendTextStyle: TextStyle(color: Colors.red),
                         outsideDaysVisible: false,
