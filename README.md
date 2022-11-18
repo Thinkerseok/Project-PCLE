@@ -41,7 +41,7 @@ APP Description 애플리케이션 사용방법은 다음 이미지를 참고하
 
 [PLAN 화면]
 
-![image](https://user-images.githubusercontent.com/109898791/202702961-9e8c9e26-e554-4a9d-861f-8275b857e17c.png)
+![image](https://user-images.githubusercontent.com/109898791/202705049-61ca9af5-e30a-45f7-a03c-2c9b7878a742.png)
 
 홈 화면의 PLAN 관리 창의 > 버튼 그리고 메뉴 바의 PLAN 버튼을 누르면 PLAN 화면으로 이동하게 됩니다.
 
