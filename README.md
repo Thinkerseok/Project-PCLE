@@ -89,7 +89,9 @@ User가 본인의 습관을 직관적으로 인지할 수 있고 시각화된 �
 TEAM PCLE은 Young Seok Hwang, Sang Jun Han으로 구성되어 있습니다.
 
 Young Seok Hwang (PM) : 프로젝트 총괄, 아이디어 구체화, 제안서 작성
+
 Sang Jun Han (PL) : 개발 총괄, 아이디어 피드백, 파이프 라인 제시
+
 산출물 코드 작성 기여도 Young Seok Hwang (10%), Sang Jun Han (90%)
 
 
