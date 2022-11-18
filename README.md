@@ -95,7 +95,7 @@ User가 본인의 습관을 직관적으로 인지할 수 있고 시각화된 �
 
 [데모 영상]
 
-
+데모 영상 URL : https://youtu.be/HBlA1LOl-gU
 
 
 [팀 소개]
