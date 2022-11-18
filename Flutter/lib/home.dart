@@ -35,6 +35,7 @@ class Home extends StatelessWidget {
                   '반가워요 User01 님 :)\n오늘은 어떤 업무를 진행해볼까요?',
                   style: TextStyle(
                     color: Colors.white,
+                    fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
                 ),

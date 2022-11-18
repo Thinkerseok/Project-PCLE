@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pcle/component/titled_container.dart';
@@ -7,7 +9,7 @@ import 'package:pcle/util.dart';
 class Project extends StatelessWidget {
   Project({Key? key}) : super(key: key);
 
-  final List<String> entries = <String>[
+  List<String> entries = <String>[
     'PROJECT A 제안서_20221004_팀원A_ver2',
     '개인 과제 A_20221005_ver4',
     'PROJECT B 과제 정의서_20221003',
@@ -95,7 +97,9 @@ class Project extends StatelessWidget {
                                   Color.fromRGBO(65, 203, 24, 1.0))),
                           child: const Icon(Icons.share)),
                       ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            entries.add('개인 과제 B_20221001_ver2');
+                          },
                           style: const ButtonStyle(
                               backgroundColor: MaterialStatePropertyAll(
                                   Color.fromRGBO(65, 203, 24, 1.0))),

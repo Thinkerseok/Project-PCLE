@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:pcle/component/d_day_text.dart';
 import 'package:pcle/component/titled_container.dart';
@@ -25,6 +27,13 @@ class Plan extends StatelessWidget {
                     height: 380.0,
                     title: '월간 PLAN 관리',
                     contents: TableCalendar(
+                      eventLoader: (day) {
+                        int d = day.day;
+                        if (day.year == 2022 && day.month == 11 && (d == 20 || d == 26)) {
+                          return ['hi'];
+                        }
+                        return [];
+                      },
                       firstDay: DateTime.utc(2021, 10, 16),
                       lastDay: DateTime.utc(2030, 3, 14),
                       focusedDay: DateTime.now(),
@@ -33,37 +42,40 @@ class Plan extends StatelessWidget {
                         defaultTextStyle: TextStyle(color: Colors.white),
                         weekendTextStyle: TextStyle(color: Colors.red),
                         outsideDaysVisible: false,
+                        markerDecoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                            color: Color.fromRGBO(65, 203, 24, 1.0)),
                       ),
                       calendarBuilders: CalendarBuilders(
                         dowBuilder: (context, day) {
                           switch (day.weekday) {
                             case 1:
                               return const Center(
-                                  child: Text('월',
+                                  child: Text('MON',
                                       style: TextStyle(color: Colors.white)));
                             case 2:
                               return const Center(
-                                  child: Text('화',
+                                  child: Text('TUE',
                                       style: TextStyle(color: Colors.white)));
                             case 3:
                               return const Center(
-                                  child: Text('수',
+                                  child: Text('WED',
                                       style: TextStyle(color: Colors.white)));
                             case 4:
                               return const Center(
-                                  child: Text('목',
+                                  child: Text('THU',
                                       style: TextStyle(color: Colors.white)));
                             case 5:
                               return const Center(
-                                  child: Text('금',
+                                  child: Text('FRI',
                                       style: TextStyle(color: Colors.white)));
                             case 6:
                               return const Center(
-                                  child: Text('토',
+                                  child: Text('SAT',
                                       style: TextStyle(color: Colors.red)));
                             case 7:
                               return const Center(
-                                  child: Text('일',
+                                  child: Text('SUN',
                                       style: TextStyle(color: Colors.red)));
                           }
                         },
@@ -74,20 +86,57 @@ class Plan extends StatelessWidget {
               ),
             ),
             Container(height: 10),
-            TitledContainer(
-                contents: Column(
-                  children: <Widget>[
-                    DDayText('2', 'PROJECT A 제안서 2차 수정'),
-                    Container(height: 10.0),
-                    DDayText('8', 'PROJECT B 아이디어 노트 작성'),
-                    Container(height: 10.0),
-                    DDayText('13', '개인 과제 A 마감 및 제출'),
-                    Container(height: 10.0),
-                    DDayText('21', 'PROJECT A 최종 제안서 제출'),
-                  ],
-                ),
-                title: '세부 PLAN 관리',
-                height: 170.0),
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              width: double.maxFinite,
+              height: 170.0,
+              decoration: BoxDecoration(
+                color: const Color.fromRGBO(46, 53, 35, 1.0),
+                borderRadius: BorderRadius.circular(Util.radius),
+              ),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      const Text('세부 PLAN 관리',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
+                      Material(
+                        color: const Color.fromRGBO(46, 53, 35, 1.0),
+                        child: IconButton(
+                            onPressed: () async {
+                              /*FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+                              if (result != null) {
+                                File file = File(result.files.single.path);
+                              } else {
+                                // User canceled the picker
+                              }*/
+                            },
+                            icon: const Icon(Icons.add),
+                            color: Colors.white,
+                            padding: EdgeInsets.zero,
+                            constraints: const BoxConstraints()),
+                      ),
+                    ],
+                  ),
+                  Container(height: 15.0),
+                  Column(
+                    children: <Widget>[
+                      DDayText('2', 'PROJECT A 제안서 2차 수정'),
+                      Container(height: 10.0),
+                      DDayText('8', 'PROJECT B 아이디어 노트 작성'),
+                      Container(height: 10.0),
+                      DDayText('13', '개인 과제 A 마감 및 제출'),
+                      Container(height: 10.0),
+                      DDayText('21', 'PROJECT A 최종 제안서 제출'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
             Container(height: 10),
             TitledContainer(
                 contents: Container(
