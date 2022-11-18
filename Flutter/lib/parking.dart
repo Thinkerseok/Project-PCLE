@@ -24,7 +24,7 @@ class Splash extends State<Parking> {
     Timer(
         const Duration(seconds: 3),
             () =>
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
+            Navigator?.of(context).pushReplacement(MaterialPageRoute(
                 builder: (BuildContext context) => const MyHomePage())));
 
     return Scaffold(

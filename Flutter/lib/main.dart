@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _children = [
     Home(),
     const Plan(),
-    Project(),
+    const Project(),
     const Setting(),
     const My()
   ];

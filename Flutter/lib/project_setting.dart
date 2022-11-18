@@ -1,35 +1,21 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pcle/component/setting_tile.dart';
 import 'package:pcle/util.dart';
 
 class ProjectSetting extends StatelessWidget {
-  const ProjectSetting({super.key, required this.projectName});
+  ProjectSetting({super.key, required this.projectName});
 
   final String projectName;
 
+  final List<String> modeList = ['개인', '협업(팀 프로젝트)'];
+
+  String text = '협업(팀 프로젝트)';
+
   @override
   Widget build(BuildContext context) {
-    // Future<void> _askedToLead() async {
-    //   await showDialog<String>(
-    //       context: context,
-    //       builder: (BuildContext context)
-    //   {
-    //     return SimpleDialog(
-    //       title: const Text('Select assignment'),
-    //       children: <Widget>[
-    //         SimpleDialogOption(
-    //           onPressed: () {},
-    //           child: const Text('Treasury department'),
-    //         ),
-    //         SimpleDialogOption(
-    //           onPressed: () {},
-    //           child: const Text('State department'),
-    //         ),
-    //       ],
-    //     );
-    //   }
-    // };
 
     return Scaffold(
       appBar: AppBar(
@@ -54,7 +40,51 @@ class ProjectSetting extends StatelessWidget {
                     width: double.maxFinite,
                     height: 1.0,
                     color: const Color.fromRGBO(66, 76, 50, 1.0)),
-                settingTile('MODE', '협업(팀 프로젝트)'),
+                ListTile(
+                  title:
+                      const Text('MODE', style: TextStyle(color: Colors.white)),
+                  subtitle: const Text('협업(팀 프로젝트)',
+                      style:
+                          TextStyle(color: Color.fromRGBO(65, 203, 24, 1.0))),
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text("MODE"),
+
+                        content: Container(
+                          height: 200.0,
+                          child: Column(
+                            children: <Widget>[
+                              ListTile(
+                                title: const Text('개인'),
+                                leading: Radio(
+                                  value: '개인',
+                                  groupValue: text,
+                                  onChanged: (value) {
+                                    text = '개인';
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ),
+                              ListTile(
+                                title: const Text('협업(팀 프로젝트)'),
+                                leading: Radio(
+                                  value: '협업(팀 프로젝트)',
+                                  groupValue: text,
+                                  onChanged: (value) {
+                                    text = '협업(팀 프로젝트)';
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
                 Container(
                     margin: const EdgeInsets.only(left: 15.0, right: 15.0),
                     width: double.maxFinite,

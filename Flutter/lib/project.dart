@@ -1,14 +1,17 @@
-import 'dart:html';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pcle/component/titled_container.dart';
 import 'package:pcle/project_setting.dart';
 import 'package:pcle/util.dart';
 
-class Project extends StatelessWidget {
-  Project({Key? key}) : super(key: key);
+class Project extends StatefulWidget {
+  const Project({Key? key}) : super(key: key);
 
+  @override
+  State<StatefulWidget> createState() => ProjectState();
+}
+
+class ProjectState extends State<Project> {
   List<String> entries = <String>[
     'PROJECT A 제안서_20221004_팀원A_ver2',
     '개인 과제 A_20221005_ver4',
@@ -20,7 +23,7 @@ class Project extends StatelessWidget {
     '아이디어 공모전 공고문(안) A_20220928'
   ];
 
-  final List<IconData> iconDataEntries = <IconData>[
+  List<IconData> iconDataEntries = <IconData>[
     Icons.file_copy_outlined,
     Icons.file_present,
     Icons.file_copy,
@@ -31,8 +34,11 @@ class Project extends StatelessWidget {
     Icons.picture_as_pdf,
   ];
 
+  int cnt = 2;
+
   @override
   Widget build(BuildContext context) {
+
     return Container(
       padding: const EdgeInsets.all(15.0),
       child: Column(
@@ -98,7 +104,11 @@ class Project extends StatelessWidget {
                           child: const Icon(Icons.share)),
                       ElevatedButton(
                           onPressed: () {
-                            entries.add('개인 과제 B_20221001_ver2');
+                            setState(() {
+                              cnt++;
+                              entries.insert(0, '개인 과제 B_20221118_ver$cnt');
+                              iconDataEntries.insert(0, Icons.file_copy);
+                            });
                           },
                           style: const ButtonStyle(
                               backgroundColor: MaterialStatePropertyAll(
