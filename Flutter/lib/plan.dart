@@ -29,14 +29,14 @@ class Plan extends StatelessWidget {
                     contents: TableCalendar(
                       eventLoader: (day) {
                         int d = day.day;
-                        if (day.year == 2022 && day.month == 11 && (d == 20 || d == 26)) {
+                        if (day.year == 2022 && (day.month == 12 && (d == 15 || d == 21 || d == 26)) || (day.month == 1 && (d == 3))) {
                           return ['hi'];
                         }
                         return [];
                       },
                       firstDay: DateTime.utc(2021, 10, 16),
                       lastDay: DateTime.utc(2030, 3, 14),
-                      focusedDay: DateTime.utc(2022, 11, 18),
+                      focusedDay: DateTime.utc(2022, 12, 13),
                       headerVisible: false,
                       calendarStyle: const CalendarStyle(
                         isTodayHighlighted: true,

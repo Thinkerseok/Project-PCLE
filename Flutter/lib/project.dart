@@ -106,7 +106,7 @@ class ProjectState extends State<Project> {
                           onPressed: () {
                             setState(() {
                               cnt++;
-                              entries.insert(0, '개인 과제 B_20221118_ver$cnt');
+                              entries.insert(0, '개인 과제 B_20221213_ver$cnt');
                               iconDataEntries.insert(0, Icons.file_copy);
                             });
                           },

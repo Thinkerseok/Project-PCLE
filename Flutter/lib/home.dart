@@ -26,7 +26,7 @@ class Home extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: const <Widget>[
                 Text(
-                  '11/18(FRI)',
+                  '12/13(TUE)',
                   style: TextStyle(
                     color: Colors.white,
                   ),
